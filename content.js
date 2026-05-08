@@ -1,0 +1,220 @@
+/* ==========================================================================
+   Longhorn Software — Single Source of Truth for Copy
+   --------------------------------------------------------------------------
+   All editable copy lives here. Edit any string and reload.
+   When porting to Next.js this file becomes content.ts with the same shape.
+   ========================================================================== */
+
+window.LH_CONTENT = {
+  meta: {
+    title: "Longhorn Software | Modern Software Engineering, Powered by AI",
+    description:
+      "Modern software engineering, powered by AI, based in Dallas, Texas. We build and modernize systems, automate workflows, and deliver practical software without the bloat of legacy delivery.",
+  },
+
+  brand: {
+    name: "Longhorn Software",
+    legal: "Longhorn Software LLC",
+    location: "Dallas, Texas",
+    email: "",
+  },
+
+  
+nav: [
+  { label: "Who we are", href: "#about" },
+  { label: "What we build", href: "#services" },
+  { label: "Why domestic", href: "#why-domestic" },
+  { label: "Training", href: "#training" },
+  { label: "Contact", href: "#contact", note: "Coming soon" },
+],
+
+  hero: {
+    eyebrow: "Software engineering · Dallas, TX",
+    // Headline options. Default = index 0. Switch via Tweaks.
+    // accentLine = which line is rendered in italic brass.
+    headlineOptions: [
+      {
+        id: "american-ai",
+        label: "American + AI (default)",
+        lines: ["American Software,", "AI-accelerated.", "Skip the offshoring tax."],
+        accentLine: 2,
+      },
+      {
+        id: "practice",
+        label: "Practice (restrained)",
+        lines: ["A software engineering", "practice in Dallas, Texas."],
+        accentLine: 1,
+      },
+      {
+        id: "verbs",
+        label: "Verbs",
+        lines: ["Build.", "Modernize.", "Automate."],
+        accentLine: 2,
+      },
+      {
+        id: "modern",
+        label: "Modern / America",
+        lines: ["Modern software,", "engineered in America."],
+        accentLine: 1,
+      },
+      {
+        id: "works",
+        label: "Outcome",
+        lines: ["Software that works.", "Without the bloat."],
+        accentLine: 1,
+      },
+    ],
+    tagline:
+      "Modern software engineering, powered by AI, based in Dallas, Texas. We build and modernize systems, automate workflows, and deliver practical software without the bloat of legacy delivery.",
+    ctaPrimary: { label: "Start a conversation", href: "#contact" },
+    ctaSecondary: { label: "What we do", href: "#services" },
+  },
+
+about: {
+  eyebrow: "Who we are",
+  headline: "Who we are",
+  body:
+    "We're an AI-enabled engineering consultancy working with small to mid-size American businesses. Everything runs domestically, which makes us a fit when the work involves sensitive data, regulated industries, or IP that shouldn't leave the country. You'll work with Longhorn Software directly, not through a chain of account managers and project leads.",
+},
+
+services: {
+  eyebrow: "What we build",
+  headline: "What we build",
+  lede:
+    "Custom software, modernization work, performance projects, and integrations, handled by the same engineer who scopes the project. Start to finish, no hand-offs.",
+  items: [
+    {
+      n: "01",
+      title: "Custom software development",
+      body: "New systems built from scratch, including web applications, internal tools, data platforms, and the integrations that hold them together.",
+    },
+    {
+      n: "02",
+      title: "Legacy system modernization",
+      body: "Aging codebases, unsupported runtimes, and brittle deployments brought into a state your team can confidently operate and extend.",
+    },
+    {
+      n: "03",
+      title: "Performance optimization",
+      body: "Slow queries, runaway cloud bills, and degraded user experience, diagnosed, fixed, and instrumented so the same problems don't return six months later.",
+    },
+    {
+      n: "04",
+      title: "Workflow automation & integration",
+      body: "Manual hand-offs, spreadsheet glue, and disconnected SaaS replaced with reliable, observable automation between the systems you already run.",
+    },
+  ],
+},
+
+  hiddenCosts: {
+    eyebrow: "Why domestic",
+    // Default = index 0. Switch via Tweaks.
+    headlineOptions: [
+      "Hidden costs that don't show up on the invoice.",
+      "The line items offshoring leaves off.",
+      "What 'cheap' actually costs.",
+    ],
+    lede:
+      "Offshore engineering looks cheap when you're comparing hourly rates on a spreadsheet. The real cost shows up later, paid out in rework, attrition, security exposure, and all the coordination required to keep a distant team productive. These are worth thinking about before you sign a statement of work.",
+    points: [
+      {
+        title: "The communication tax",
+        body:
+          "Time-zone gaps stretch out clarification cycles across the lifetime of a project. A single ambiguous requirement can cost a full day before anyone notices it was misread, and across a multi-month build those quiet days quietly add up to weeks.",
+      },
+      {
+        title: "Quality variance",
+        body:
+          "Engineers working without close peer review tend to produce code that needs rework later. The savings on hourly rate disappear the first time a critical path has to be rebuilt, and they keep disappearing every time the next person tries to extend it.",
+      },
+      {
+        title: "Security exposure",
+        body:
+          "When sensitive business data and source code cross international borders, you take on risk you can't fully audit. The pattern is well documented. Video streaming platforms, financial services firms, and healthcare vendors have all disclosed breaches and even data ransoms that traced back to outsourced development environments. The breach is what makes the news, but the decision to send the code abroad in the first place is usually what made it possible.",
+      },
+      {
+        title: "Turnover and continuity",
+        body:
+          "Annual attrition at large offshore firms in India runs around 13-15% in stable years and has spiked to 25%+ during high-demand cycles. The engineer who built your system is rarely the one maintaining it a year later — and institutional knowledge will walk out the door",
+      },
+      {
+        title: "Hidden coordination costs",
+        body:
+          "With larger offshore engagements, you\'re not just paying for engineering hours. Project managers, account managers, QA layers, and translation overhead get built into the rate or billed separately. The line item that wins the pitch is rarely the line item that defines the invoice.",
+      },
+    ],
+    closer: {
+      label: "Our position",
+      body:
+        "We close the cost gap with US-based engineering and AI-assisted development. You get clear accountability throughout the project, an operation that stays inside the United States, and software that holds up.",
+    },
+  },
+
+  training: {
+    eyebrow: "Training",
+    headline: "Work with us before you commit to a build.",
+    body:
+      "AI training is the easiest way to start working with us. Sessions are personalized, 1:1 or small-group, and structured around how your team actually learns, whether that's by watching, by doing, or by building alongside us. The goal is for your team to leave with skills they can put to work the same week. It's also a low-stakes way to see whether a larger engagement makes sense down the road.",
+    bullets: [
+      "Scoped to your team's actual stack and workflows",
+      "Practical, hands-on exercises throughout",
+      "Knowledge transfer first, so your team owns what gets built",
+      "A natural on-ramp to a larger engagement",
+    ],
+    cta: { label: "Talk about a session", href: "#contact" },
+  },
+
+  intake: {
+    eyebrow: "Contact",
+    headline: "Start a conversation.",
+    body:
+      "Tell us a little about what you're working on. We read every inquiry and respond personally, usually within one business day.",
+    fields: {
+      name: "Name",
+      email: "Email",
+      company: "Company",
+      projectType: "Project type",
+      budget: "Estimated budget",
+      description: "What are you trying to accomplish?",
+    },
+    projectTypes: [
+      "New software build",
+      "Legacy modernization",
+      "Performance optimization",
+      "Workflow automation",
+      "AI training",
+      "Not sure yet",
+    ],
+    budgets: [
+      "Under $25k",
+      "$25k – $75k",
+      "$75k – $200k",
+      "$200k+",
+      "Not sure yet",
+    ],
+    submit: "Send",
+    success:
+      "Thanks. Your note is in. We'll be in touch within one business day.",
+  },
+
+  // ----------------------------------------------------------------
+  // Tweakable design tokens — exposed in the Tweaks panel.
+  // ----------------------------------------------------------------
+  tweaks: {
+    accentOptions: [
+      { id: "brass",     label: "Brass",      value: "oklch(0.78 0.09 80)"  },
+      { id: "champagne", label: "Champagne",  value: "oklch(0.86 0.045 95)" },
+      { id: "sage",      label: "Sage",       value: "oklch(0.74 0.04 145)" },
+      { id: "slate",     label: "Slate blue", value: "oklch(0.74 0.04 230)" },
+    ],
+  },
+
+  footer: {
+    blurb:
+      "Modern software engineering, powered by AI. Domestic operations from Dallas, Texas.",
+    links: [
+      { label: "Privacy Policy", href: "#" },
+      { label: "Terms", href: "#" },
+    ],
+  },
+};

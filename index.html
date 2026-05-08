@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Longhorn Software</title>
+  <meta name="description" content="" />
+  <meta name="theme-color" content="#0B0E12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============== NAV / HEADER ============== -->
+  <header class="nav" role="banner">
+    <a class="brand" href="#top" aria-label="Longhorn Software home">
+      <!-- Abstract horn-pair mark. Original; not a UT-style silhouette. -->
+      <svg class="mark" viewBox="0 0 64 24" aria-hidden="true">
+        <g fill="none" stroke="oklch(0.78 0.09 80)" stroke-width="1.6" stroke-linecap="round">
+          <path d="M32 18 C 24 18, 16 14, 4 5" />
+          <path d="M32 18 C 40 18, 48 14, 60 5" />
+        </g>
+        <circle cx="32" cy="18" r="1.4" fill="oklch(0.78 0.09 80)" />
+      </svg>
+      <span class="wordmark" data-brand-name>Longhorn Software</span>
+    </a>
+
+    <button class="hamburger" data-hamburger aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
+      <span>Menu</span>
+      <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+  </header>
+
+  <!-- ============== FULLSCREEN MENU ============== -->
+  <nav class="menu" id="primary-menu" data-menu data-open="false" aria-label="Primary">
+    <div class="menu-inner" data-menu-inner></div>
+  </nav>
+
+  <!-- ============== ABOUT MODAL (placeholder) ============== -->
+  <div class="modal" data-modal data-open="false" role="dialog" aria-modal="true" aria-labelledby="about-h">
+    <div class="modal-card">
+      <div class="kicker">About</div>
+      <h2 id="about-h">Coming soon.</h2>
+      <p>The full story of Longhorn Software — who we are, how we work, and the principles behind the practice — is on the way.</p>
+      <button class="modal-close" data-modal-close>Close</button>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ============== HERO ============== -->
+    <section class="hero" id="home" data-screen-label="01 Hero">
+      <div class="wrap">
+        <div class="kicker" data-hero-eyebrow></div>
+        <h1 data-hero-headline></h1>
+        <p class="hero-tagline" data-hero-tagline></p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" data-hero-cta-primary href="#contact">
+            <span class="l">Start a conversation</span><span class="arrow"></span>
+          </a>
+          <a class="btn btn-ghost" data-hero-cta-secondary href="#services">
+            <span class="l">What we do</span><span class="arrow"></span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <div><span data-brand-est>Est. 2026</span></div>
+        <div class="v"><span data-brand-location>Dallas, Texas</span></div>
+      </div>
+    </section>
+
+    <!-- ============== ABOUT ============== -->
+    <section id="about" data-screen-label="02 About">
+      <div class="wrap">
+        <div class="kicker" data-about-eyebrow></div>
+        <h2 data-about-headline></h2>
+        <p class="body" data-about-body></p>
+      </div>
+    </section>
+
+    <!-- ============== SERVICES ============== -->
+    <section id="services" data-screen-label="03 Services">
+      <div class="wrap">
+        <div class="svc-intro">
+          <div class="kicker" data-svc-eyebrow></div>
+          <h2 data-svc-headline></h2>
+          <p class="lede" data-svc-lede></p>
+        </div>
+
+        <div class="svc-grid" data-svc-grid></div>
+      </div>
+    </section>
+
+    <!-- ============== HIDDEN COSTS / WHY DOMESTIC ============== -->
+    <section id="why-domestic" data-screen-label="04 Hidden Costs">
+      <div class="wrap">
+        <div class="costs-head">
+          <div>
+            <div class="kicker" data-costs-eyebrow></div>
+            <h2 data-costs-headline></h2>
+          </div>
+          <p class="lede" data-costs-lede></p>
+        </div>
+        <div class="costs-list" data-costs-list></div>
+        <div class="costs-closer">
+          <div class="label" data-costs-closer-label></div>
+          <p data-costs-closer-body></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== TRAINING ============== -->
+    <section id="training" data-screen-label="05 Training">
+      <div class="wrap">
+        <div class="training-grid">
+          <div>
+            <div class="kicker" data-training-eyebrow></div>
+            <h2 data-training-headline></h2>
+            <p class="body" data-training-body></p>
+            <a class="btn btn-ghost training-cta" data-training-cta href="#contact">
+              <span class="l"></span><span class="arrow"></span>
+            </a>
+          </div>
+          <ul class="training-bullets" data-training-bullets></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== INTAKE FORM ============== -->
+    <section id="contact" data-screen-label="06 Contact">
+      <div class="wrap">
+        <div class="intake-grid">
+          <aside class="intake-aside">
+            <div class="kicker" data-intake-eyebrow></div>
+            <h2 data-intake-headline></h2>
+            <p class="body" data-intake-body style="margin-top: 24px;"></p>
+            <div class="meta">
+              <div><span style="color:var(--ink-4);">Email&nbsp;&nbsp;</span><a data-brand-email>—</a></div>
+              <div><span style="color:var(--ink-4);">Based in&nbsp;&nbsp;</span><strong data-brand-location>—</strong></div>
+              <div><span style="color:var(--ink-4);">Response&nbsp;&nbsp;</span><strong>≤ 1 business day</strong></div>
+            </div>
+          </aside>
+
+          <div>
+            <form class="form" data-form novalidate>
+              <div class="row">
+                <div class="field">
+                  <label for="name" data-label-name>Name <span class="req">REQUIRED</span></label>
+                  <input id="name" name="name" type="text" autocomplete="name" required />
+                </div>
+                <div class="field">
+                  <label for="email" data-label-email>Email <span class="req">REQUIRED</span></label>
+                  <input id="email" name="email" type="email" autocomplete="email" required />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="company" data-label-company>Company</label>
+                <input id="company" name="company" type="text" autocomplete="organization" />
+              </div>
+
+              <div class="row">
+                <div class="field">
+                  <label for="projectType" data-label-projectType>Project type</label>
+                  <select id="projectType" name="projectType"></select>
+                </div>
+                <div class="field">
+                  <label for="budget" data-label-budget>Estimated budget</label>
+                  <select id="budget" name="budget"></select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="description" data-label-description>Description <span class="req">REQUIRED</span></label>
+                <textarea id="description" name="description" rows="5" required placeholder="A few sentences on what you're trying to accomplish, the current state, and any constraints."></textarea>
+              </div>
+
+              <div class="form-submit">
+                <button class="btn btn-primary" type="submit">
+                  <span data-intake-submit>Send</span><span class="arrow"></span>
+                </button>
+                <span class="form-note">We read every inquiry personally.</span>
+              </div>
+            </form>
+
+            <div class="form-success" data-intake-success role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="brand" href="#top" aria-label="Longhorn Software home">
+            <svg class="mark" viewBox="0 0 64 24" aria-hidden="true">
+              <g fill="none" stroke="oklch(0.78 0.09 80)" stroke-width="1.6" stroke-linecap="round">
+                <path d="M32 18 C 24 18, 16 14, 4 5" />
+                <path d="M32 18 C 40 18, 48 14, 60 5" />
+              </g>
+              <circle cx="32" cy="18" r="1.4" fill="oklch(0.78 0.09 80)" />
+            </svg>
+            <span class="wordmark" data-brand-name>Longhorn Software</span>
+          </a>
+          <p class="blurb" data-footer-blurb></p>
+        </div>
+
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <a data-brand-email>—</a>
+          <span data-brand-location>—</span>
+        </div>
+
+        <div class="foot-col">
+          <h4>Site</h4>
+          <div data-footer-links></div>
+        </div>
+      </div>
+      <div class="foot-fine">
+        <span>© <span data-year></span> · <span data-brand-legal></span></span>
+        <span>Dallas, Texas · USA</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Tweaks panel root (populated by tweaks.js) -->
+  <aside class="tweaks-panel" data-tweaks-panel data-open="false" aria-label="Tweaks"></aside>
+
+  <script src="content.js"></script>
+  <script>
+    // Tweak defaults. The block between EDITMODE markers must stay valid JSON
+    // — the host parses it and rewrites it on disk when you change tweaks.
+    window.__LH_TWEAK_DEFAULTS__ = /*EDITMODE-BEGIN*/{
+      "headlineId": 0,
+      "costsHeadlineId": 0,
+      "accent": "brass",
+      "showSecondary": true
+    }/*EDITMODE-END*/;
+  </script>
+  <script src="tweaks.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
