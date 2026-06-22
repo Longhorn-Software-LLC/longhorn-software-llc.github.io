@@ -25,7 +25,7 @@ nav: [
   { label: "What we build", href: "#services" },
   { label: "Why domestic", href: "#why-domestic" },
   { label: "Training", href: "#training" },
-  { label: "Contact", href: "#contact", note: "Coming soon" },
+  { label: "Contact", href: "#contact" },
 ],
 
   hero: {
@@ -192,7 +192,7 @@ services: {
       "$200k+",
       "Not sure yet",
     ],
-    submit: "Coming Soon!",
+    submit: "Send",
     success:
       "Thanks. Your note is in. We'll be in touch within one business day.",
   },

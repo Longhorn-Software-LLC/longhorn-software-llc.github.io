@@ -59,43 +59,45 @@
       )
       .join("");
   }
+
   renderHeadline((window.__TWEAKS__ && window.__TWEAKS__.headlineId) || 0);
+
   const ctaP = $("[data-hero-cta-primary]");
   ctaP.querySelector("span.l").textContent = C.hero.ctaPrimary.label;
   ctaP.setAttribute("href", C.hero.ctaPrimary.href);
+
   const ctaS = $("[data-hero-cta-secondary]");
   ctaS.querySelector("span.l").textContent = C.hero.ctaSecondary.label;
   ctaS.setAttribute("href", C.hero.ctaSecondary.href);
 
-// ---- about --------------------------------------------------------------
-if (C.about) {
-  const aboutEyebrow = $("[data-about-eyebrow]");
-  const aboutHeadline = $("[data-about-headline]");
-  const aboutBody = $("[data-about-body]");
-  if (aboutEyebrow) aboutEyebrow.textContent = C.about.eyebrow;
-  if (aboutHeadline) aboutHeadline.textContent = C.about.headline;
-  if (aboutBody) aboutBody.textContent = C.about.body;
-}
+  // ---- about --------------------------------------------------------------
+  if (C.about) {
+    const aboutEyebrow = $("[data-about-eyebrow]");
+    const aboutHeadline = $("[data-about-headline]");
+    const aboutBody = $("[data-about-body]");
+    if (aboutEyebrow) aboutEyebrow.textContent = C.about.eyebrow;
+    if (aboutHeadline) aboutHeadline.textContent = C.about.headline;
+    if (aboutBody) aboutBody.textContent = C.about.body;
+  }
 
-// ---- services -----------------------------------------------------------
-$("[data-svc-eyebrow]").textContent = C.services.eyebrow;
-$("[data-svc-headline]").textContent = C.services.headline;
-$("[data-svc-lede]").textContent = C.services.lede;
+  // ---- services -----------------------------------------------------------
+  $("[data-svc-eyebrow]").textContent = C.services.eyebrow;
+  $("[data-svc-headline]").textContent = C.services.headline;
+  $("[data-svc-lede]").textContent = C.services.lede;
 
-const svcGrid = $("[data-svc-grid]");
-svcGrid.innerHTML = "";
-C.services.items.forEach((it) => {
-  svcGrid.appendChild(el(`
-    <div class="svc-item">
-      <div class="n">${escape(it.n)}</div>
-      <div>
-        <h3>${escape(it.title)}</h3>
-        <p>${escape(it.body)}</p>
+  const svcGrid = $("[data-svc-grid]");
+  svcGrid.innerHTML = "";
+  C.services.items.forEach((it) => {
+    svcGrid.appendChild(el(`
+      <div class="svc-item">
+        <div class="n">${escape(it.n)}</div>
+        <div>
+          <h3>${escape(it.title)}</h3>
+          <p>${escape(it.body)}</p>
+        </div>
       </div>
-    </div>
-  `));
-});
-
+    `));
+  });
 
   // ---- hidden costs -------------------------------------------------------
   $("[data-costs-eyebrow]").textContent = C.hiddenCosts.eyebrow;
@@ -105,7 +107,9 @@ C.services.items.forEach((it) => {
     const opts = C.hiddenCosts.headlineOptions || [];
     $("[data-costs-headline]").textContent = opts[idx] || opts[0] || "";
   }
+
   renderCostsHeadline((window.__TWEAKS__ && window.__TWEAKS__.costsHeadlineId) || 0);
+
   const cList = $("[data-costs-list]");
   cList.innerHTML = "";
   C.hiddenCosts.points.forEach((p, i) => {
@@ -118,6 +122,7 @@ C.services.items.forEach((it) => {
       </article>
     `));
   });
+
   $("[data-costs-closer-label]").textContent = C.hiddenCosts.closer.label;
   $("[data-costs-closer-body]").textContent = C.hiddenCosts.closer.body;
 
@@ -125,9 +130,11 @@ C.services.items.forEach((it) => {
   $("[data-training-eyebrow]").textContent = C.training.eyebrow;
   $("[data-training-headline]").textContent = C.training.headline;
   $("[data-training-body]").textContent = C.training.body;
+
   const tList = $("[data-training-bullets]");
   tList.innerHTML = "";
   C.training.bullets.forEach((b) => tList.appendChild(el(`<li>${escape(b)}</li>`)));
+
   const tCta = $("[data-training-cta]");
   tCta.querySelector("span.l").textContent = C.training.cta.label;
   tCta.setAttribute("href", C.training.cta.href);
@@ -136,6 +143,7 @@ C.services.items.forEach((it) => {
   $("[data-intake-eyebrow]").textContent = C.intake.eyebrow;
   $("[data-intake-headline]").textContent = C.intake.headline;
   $("[data-intake-body]").textContent = C.intake.body;
+
   const f = C.intake.fields;
   $("[data-label-name]").firstChild.nodeValue = f.name + " ";
   $("[data-label-email]").firstChild.nodeValue = f.email + " ";
@@ -147,6 +155,7 @@ C.services.items.forEach((it) => {
   const projectSel = $("#projectType");
   projectSel.innerHTML = '<option value="" disabled selected hidden>Select…</option>' +
     C.intake.projectTypes.map((t) => `<option>${escape(t)}</option>`).join("");
+
   const budgetSel = $("#budget");
   budgetSel.innerHTML = '<option value="" disabled selected hidden>Select…</option>' +
     C.intake.budgets.map((b) => `<option>${escape(b)}</option>`).join("");
@@ -156,6 +165,7 @@ C.services.items.forEach((it) => {
 
   // ---- footer -------------------------------------------------------------
   $("[data-footer-blurb]").textContent = C.footer.blurb;
+
   const fLinks = $("[data-footer-links]");
   fLinks.innerHTML = "";
   C.footer.links.forEach((l) =>
@@ -166,6 +176,7 @@ C.services.items.forEach((it) => {
   const menu = $("[data-menu]");
   const menuInner = $("[data-menu-inner]");
   menuInner.innerHTML = "";
+
   C.nav.forEach((item, i) => {
     const num = String(i + 1).padStart(2, "0");
     menuInner.appendChild(el(`
@@ -177,22 +188,24 @@ C.services.items.forEach((it) => {
   });
 
   const ham = $("[data-hamburger]");
+
   const setMenu = (open) => {
     ham.setAttribute("aria-expanded", String(open));
     menu.setAttribute("data-open", String(open));
     document.body.style.overflow = open ? "hidden" : "";
   };
+
   ham.addEventListener("click", () => {
     const open = ham.getAttribute("aria-expanded") !== "true";
     setMenu(open);
   });
-  // close menu on link click
+
   menuInner.addEventListener("click", (e) => {
     const a = e.target.closest("a");
     if (!a) return;
     setMenu(false);
   });
-  // esc closes menu/modal
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       setMenu(false);
@@ -204,6 +217,7 @@ C.services.items.forEach((it) => {
   $("[data-modal-close]").addEventListener("click", () => {
     $("[data-modal]").setAttribute("data-open", "false");
   });
+
   $("[data-modal]").addEventListener("click", (e) => {
     if (e.target.matches("[data-modal]")) {
       e.currentTarget.setAttribute("data-open", "false");
@@ -213,17 +227,77 @@ C.services.items.forEach((it) => {
   // ---- form ---------------------------------------------------------------
   const form = $("[data-form]");
   const success = $("[data-intake-success]");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    // ====================================================================
-    // TODO: form submission handler
-    // Wire to your endpoint here, e.g. fetch('/api/contact', {method:'POST', ...})
-    // For now we just show the success message.
-    // ====================================================================
-    form.classList.add("is-submitted");
-    success.classList.add("is-shown");
-    success.scrollIntoView({ behavior: "smooth", block: "center" });
-  });
+  const formError = $("[data-form-error]");
+  const submitButton = form ? form.querySelector('button[type="submit"]') : null;
+  const submitLabel = submitButton ? submitButton.querySelector("[data-intake-submit]") : null;
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (success) success.classList.remove("is-shown");
+
+      if (formError) {
+        formError.textContent = "";
+        formError.classList.remove("is-shown");
+      }
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const endpoint = form.getAttribute("action");
+      const originalLabel = submitLabel ? submitLabel.textContent : "Send";
+
+      if (submitButton) submitButton.disabled = true;
+      if (submitLabel) submitLabel.textContent = "Sending…";
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          body: new FormData(form),
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (!response.ok) {
+          let message = "Something went wrong. Please try again.";
+
+          try {
+            const data = await response.json();
+            if (data.errors && data.errors.length) {
+              message = data.errors.map((err) => err.message).join(" ");
+            }
+          } catch (_) {
+            // Keep fallback message.
+          }
+
+          throw new Error(message);
+        }
+
+        form.reset();
+        form.classList.add("is-submitted");
+
+        if (success) {
+          success.textContent = C.intake.success || "Thanks — your message has been sent.";
+          success.classList.add("is-shown");
+          success.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      } catch (err) {
+        if (formError) {
+          formError.textContent = err.message || "Something went wrong. Please try again.";
+          formError.classList.add("is-shown");
+        } else {
+          alert(err.message || "Something went wrong. Please try again.");
+        }
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+        if (submitLabel) submitLabel.textContent = originalLabel;
+      }
+    });
+  }
 
   // ---- tweaks bridge: re-apply tweak-controlled bits on every change ------
   window.applyTweaks = function (state) {
@@ -232,8 +306,7 @@ C.services.items.forEach((it) => {
     if (typeof state.costsHeadlineId === "number") renderCostsHeadline(state.costsHeadlineId);
   };
 
-  // ---- subtle parallax-ish year mark in hero (purely cosmetic) -----------
-  // (kept tiny; no perf cost)
+  // ---- subtle parallax-ish year mark in hero ------------------------------
   const heroMeta = $(".hero-meta");
   if (heroMeta) {
     window.addEventListener("scroll", () => {

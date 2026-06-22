@@ -38,11 +38,11 @@
     <div class="menu-inner" data-menu-inner></div>
   </nav>
 
-  <!-- ============== ABOUT MODAL (placeholder) ============== -->
+  <!-- ============== ABOUT MODAL ============== -->
   <div class="modal" data-modal data-open="false" role="dialog" aria-modal="true" aria-labelledby="about-h">
     <div class="modal-card">
       <div class="kicker">About</div>
-      <h2 id="about-h">Coming soon.</h2>
+      <h2 id="about-h"></h2>
       <p>The full story of Longhorn Software — who we are, how we work, and the principles behind the practice — is on the way.</p>
       <button class="modal-close" data-modal-close>Close</button>
     </div>
@@ -144,12 +144,20 @@
           </aside>
 
           <div>
-            <form class="form" data-form novalidate>
+            <form
+              id="contact-form"
+              class="form"
+              data-form
+              action="https://formspree.io/f/mjgqbnpp"
+              method="POST"
+              novalidate
+            >
               <div class="row">
                 <div class="field">
                   <label for="name" data-label-name>Name <span class="req">REQUIRED</span></label>
                   <input id="name" name="name" type="text" autocomplete="name" required />
                 </div>
+
                 <div class="field">
                   <label for="email" data-label-email>Email <span class="req">REQUIRED</span></label>
                   <input id="email" name="email" type="email" autocomplete="email" required />
@@ -166,6 +174,7 @@
                   <label for="projectType" data-label-projectType>Project type</label>
                   <select id="projectType" name="projectType"></select>
                 </div>
+
                 <div class="field">
                   <label for="budget" data-label-budget>Estimated budget</label>
                   <select id="budget" name="budget"></select>
@@ -174,8 +183,29 @@
 
               <div class="field">
                 <label for="description" data-label-description>Description <span class="req">REQUIRED</span></label>
-                <textarea id="description" name="description" rows="5" required placeholder="A few sentences on what you're trying to accomplish, the current state, and any constraints."></textarea>
+                <textarea
+                  id="description"
+                  name="description"
+                  rows="5"
+                  required
+                  placeholder="A few sentences on what you're trying to accomplish, the current state, and any constraints."
+                ></textarea>
               </div>
+
+              <!-- Custom subject line shown in Formspree emails -->
+              <input type="hidden" name="_subject" value="New Longhorn Software inquiry" />
+
+              <!-- Honeypot anti-spam field -->
+              <input
+                type="text"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off"
+                style="display:none"
+              />
+
+              <!-- Error message shown only when submission fails -->
+              <div class="form-error" data-form-error role="alert" aria-live="polite"></div>
 
               <div class="form-submit">
                 <button class="btn btn-primary" disabled type="submit">
@@ -185,7 +215,14 @@
               </div>
             </form>
 
-            <div class="form-success" data-intake-success role="status" aria-live="polite"></div>
+            <!-- Success message stays hidden until app.js shows it after submit -->
+            <div
+              class="form-success"
+              data-intake-success
+              role="status"
+              aria-live="polite"
+              hidden
+            ></div>
           </div>
         </div>
       </div>
@@ -228,7 +265,7 @@
     </div>
   </footer>
 
-  <!-- Tweaks panel root (populated by tweaks.js) -->
+  <!-- Tweaks panel root populated by tweaks.js -->
   <aside class="tweaks-panel" data-tweaks-panel data-open="false" aria-label="Tweaks"></aside>
 
   <script src="content.js"></script>
