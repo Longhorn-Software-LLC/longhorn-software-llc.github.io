@@ -192,7 +192,7 @@ services: {
       "$200k+",
       "Not sure yet",
     ],
-    submit: "Send",
+    submit: "Coming Soon!",
     success:
       "Thanks. Your note is in. We'll be in touch within one business day.",
   },
