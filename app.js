@@ -8,7 +8,10 @@
 
 (function () {
   const C = window.LH_CONTENT;
-  if (!C) { console.error("Content not loaded"); return; }
+  if (!C) {
+    console.error("Content not loaded");
+    return;
+  }
 
   // ---- meta ---------------------------------------------------------------
   document.title = C.meta.title;
@@ -16,31 +19,40 @@
   if (metaDesc) metaDesc.setAttribute("content", C.meta.description);
 
   // ---- helpers ------------------------------------------------------------
-  const $  = (sel, root = document) => root.querySelector(sel);
+  const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
   const el = (html) => {
     const t = document.createElement("template");
     t.innerHTML = html.trim();
     return t.content.firstElementChild;
   };
-  const escape = (s) => String(s).replace(/[&<>"']/g, (c) => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-  }[c]));
+
+  const escape = (s) =>
+    String(s).replace(/[&<>"']/g, (c) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[c]));
 
   // ---- brand --------------------------------------------------------------
   $$("[data-brand-name]").forEach((n) => (n.textContent = C.brand.name));
   $$("[data-brand-legal]").forEach((n) => (n.textContent = C.brand.legal));
+
   $$("[data-brand-email]").forEach((n) => {
     if (C.brand.email) {
       n.textContent = C.brand.email;
       n.setAttribute("href", "mailto:" + C.brand.email);
     } else {
-      // Hide email row entirely until a real address is set
+      // Hide email row entirely until a real address is set.
       const row = n.closest("div");
       if (row) row.style.display = "none";
       else n.style.display = "none";
     }
   });
+
   $$("[data-brand-location]").forEach((n) => (n.textContent = C.brand.location));
   $$("[data-brand-est]").forEach((n) => (n.textContent = C.brand.established));
   $$("[data-year]").forEach((n) => (n.textContent = new Date().getFullYear()));
@@ -53,6 +65,7 @@
     const opts = C.hero.headlineOptions || [];
     const opt = opts[idx] || opts[0];
     if (!opt) return;
+
     $("[data-hero-headline]").innerHTML = opt.lines
       .map((line, i) =>
         `<span class="line${i === opt.accentLine ? " accent" : ""}">${escape(line)}</span>`
@@ -75,6 +88,7 @@
     const aboutEyebrow = $("[data-about-eyebrow]");
     const aboutHeadline = $("[data-about-headline]");
     const aboutBody = $("[data-about-body]");
+
     if (aboutEyebrow) aboutEyebrow.textContent = C.about.eyebrow;
     if (aboutHeadline) aboutHeadline.textContent = C.about.headline;
     if (aboutBody) aboutBody.textContent = C.about.body;
@@ -87,6 +101,7 @@
 
   const svcGrid = $("[data-svc-grid]");
   svcGrid.innerHTML = "";
+
   C.services.items.forEach((it) => {
     svcGrid.appendChild(el(`
       <div class="svc-item">
@@ -112,8 +127,10 @@
 
   const cList = $("[data-costs-list]");
   cList.innerHTML = "";
+
   C.hiddenCosts.points.forEach((p, i) => {
     const n = String(i + 1).padStart(2, "0");
+
     cList.appendChild(el(`
       <article class="cost">
         <div class="n">${n} / ${String(C.hiddenCosts.points.length).padStart(2, "0")}</div>
@@ -145,6 +162,7 @@
   $("[data-intake-body]").textContent = C.intake.body;
 
   const f = C.intake.fields;
+
   $("[data-label-name]").firstChild.nodeValue = f.name + " ";
   $("[data-label-email]").firstChild.nodeValue = f.email + " ";
   $("[data-label-company]").textContent = f.company;
@@ -153,21 +171,31 @@
   $("[data-label-description]").firstChild.nodeValue = f.description + " ";
 
   const projectSel = $("#projectType");
-  projectSel.innerHTML = '<option value="" disabled selected hidden>Select…</option>' +
+  projectSel.innerHTML =
+    '<option value="" disabled selected hidden>Select…</option>' +
     C.intake.projectTypes.map((t) => `<option>${escape(t)}</option>`).join("");
 
   const budgetSel = $("#budget");
-  budgetSel.innerHTML = '<option value="" disabled selected hidden>Select…</option>' +
+  budgetSel.innerHTML =
+    '<option value="" disabled selected hidden>Select…</option>' +
     C.intake.budgets.map((b) => `<option>${escape(b)}</option>`).join("");
 
   $("[data-intake-submit]").textContent = C.intake.submit;
-  $("[data-intake-success]").textContent = C.intake.success;
+
+  // Keep success message hidden until the form actually submits successfully.
+  const initialSuccess = $("[data-intake-success]");
+  if (initialSuccess) {
+    initialSuccess.textContent = "";
+    initialSuccess.hidden = true;
+    initialSuccess.classList.remove("is-shown");
+  }
 
   // ---- footer -------------------------------------------------------------
   $("[data-footer-blurb]").textContent = C.footer.blurb;
 
   const fLinks = $("[data-footer-links]");
   fLinks.innerHTML = "";
+
   C.footer.links.forEach((l) =>
     fLinks.appendChild(el(`<a href="${escape(l.href)}">${escape(l.label)}</a>`))
   );
@@ -179,6 +207,7 @@
 
   C.nav.forEach((item, i) => {
     const num = String(i + 1).padStart(2, "0");
+
     menuInner.appendChild(el(`
       <a href="${escape(item.href)}" data-menu-link>
         <span><span class="num">${num}</span> &nbsp;${escape(item.label)}</span>
@@ -231,11 +260,29 @@
   const submitButton = form ? form.querySelector('button[type="submit"]') : null;
   const submitLabel = submitButton ? submitButton.querySelector("[data-intake-submit]") : null;
 
+  let isSubmitting = false;
+
+  // This fixes the case where the HTML still has disabled on the submit button.
+  if (submitButton) submitButton.disabled = false;
+
   if (form) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      if (success) success.classList.remove("is-shown");
+      if (isSubmitting) return;
+      isSubmitting = true;
+
+      const gotcha = form.querySelector('[name="_gotcha"]');
+      if (gotcha && gotcha.value) {
+        isSubmitting = false;
+        return;
+      }
+
+      if (success) {
+        success.textContent = "";
+        success.hidden = true;
+        success.classList.remove("is-shown");
+      }
 
       if (formError) {
         formError.textContent = "";
@@ -244,10 +291,11 @@
 
       if (!form.checkValidity()) {
         form.reportValidity();
+        isSubmitting = false;
         return;
       }
 
-      const endpoint = form.getAttribute("action");
+      const endpoint = form.getAttribute("action") || "https://formspree.io/f/mjgqbnpp";
       const originalLabel = submitLabel ? submitLabel.textContent : "Send";
 
       if (submitButton) submitButton.disabled = true;
@@ -267,6 +315,7 @@
 
           try {
             const data = await response.json();
+
             if (data.errors && data.errors.length) {
               message = data.errors.map((err) => err.message).join(" ");
             }
@@ -282,6 +331,7 @@
 
         if (success) {
           success.textContent = C.intake.success || "Thanks — your message has been sent.";
+          success.hidden = false;
           success.classList.add("is-shown");
           success.scrollIntoView({ behavior: "smooth", block: "center" });
         }
@@ -293,6 +343,8 @@
           alert(err.message || "Something went wrong. Please try again.");
         }
       } finally {
+        isSubmitting = false;
+
         if (submitButton) submitButton.disabled = false;
         if (submitLabel) submitLabel.textContent = originalLabel;
       }
@@ -308,6 +360,7 @@
 
   // ---- subtle parallax-ish year mark in hero ------------------------------
   const heroMeta = $(".hero-meta");
+
   if (heroMeta) {
     window.addEventListener("scroll", () => {
       const y = Math.min(window.scrollY, 400);
