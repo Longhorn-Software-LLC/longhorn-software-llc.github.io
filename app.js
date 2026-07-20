@@ -104,17 +104,6 @@
   // ---- brand --------------------------------------------------------------
   $$("[data-brand-name]").forEach((n) => (n.textContent = C.brand.name));
   $$("[data-brand-legal]").forEach((n) => (n.textContent = C.brand.legal));
-  $$("[data-brand-email]").forEach((n) => {
-    if (C.brand.email) {
-      n.textContent = C.brand.email;
-      n.setAttribute("href", "mailto:" + C.brand.email);
-    } else {
-      // Hide email row entirely until a real address is set
-      const row = n.closest("div");
-      if (row) row.style.display = "none";
-      else n.style.display = "none";
-    }
-  });
   $$("[data-brand-location]").forEach((n) => (n.textContent = C.brand.location));
   $$("[data-brand-est]").forEach((n) => (n.textContent = C.brand.established));
   $$("[data-year]").forEach((n) => (n.textContent = new Date().getFullYear()));
@@ -124,17 +113,12 @@
   if (heroEyebrow) heroEyebrow.textContent = C.hero.eyebrow;
   $("[data-hero-tagline]").textContent = C.hero.tagline;
 
-  function renderHeadline(idx) {
-    const opts = C.hero.headlineOptions || [];
-    const opt = opts[idx] || opts[0];
-    if (!opt) return;
-    $("[data-hero-headline]").innerHTML = opt.lines
-      .map((line, i) =>
-        `<span class="line${i === opt.accentLine ? " accent" : ""}">${escape(line)}</span>`
-      )
-      .join("");
-  }
-  renderHeadline((window.__TWEAKS__ && window.__TWEAKS__.headlineId) || 0);
+  const heroHeadline = C.hero.headline;
+  $("[data-hero-headline]").innerHTML = heroHeadline.lines
+    .map((line, i) =>
+      `<span class="line${i === heroHeadline.accentLine ? " accent" : ""}">${escape(line)}</span>`
+    )
+    .join("");
   const ctaP = $("[data-hero-cta-primary]");
   ctaP.querySelector("span.l").textContent = C.hero.ctaPrimary.label;
   ctaP.setAttribute("href", C.hero.ctaPrimary.href);
@@ -178,11 +162,7 @@ C.services.items.forEach((it) => {
   $("[data-costs-eyebrow]").textContent = C.hiddenCosts.eyebrow;
   $("[data-costs-lede]").textContent = C.hiddenCosts.lede;
 
-  function renderCostsHeadline(idx) {
-    const opts = C.hiddenCosts.headlineOptions || [];
-    $("[data-costs-headline]").textContent = opts[idx] || opts[0] || "";
-  }
-  renderCostsHeadline((window.__TWEAKS__ && window.__TWEAKS__.costsHeadlineId) || 0);
+  $("[data-costs-headline]").textContent = C.hiddenCosts.headline;
   const cList = $("[data-costs-list]");
   cList.innerHTML = "";
   C.hiddenCosts.points.forEach((p, i) => {
@@ -329,13 +309,6 @@ C.services.items.forEach((it) => {
       submitBtn.disabled = false;
     }
   });
-
-  // ---- tweaks bridge: re-apply tweak-controlled bits on every change ------
-  window.applyTweaks = function (state) {
-    if (!state) return;
-    if (typeof state.headlineId === "number") renderHeadline(state.headlineId);
-    if (typeof state.costsHeadlineId === "number") renderCostsHeadline(state.costsHeadlineId);
-  };
 
   // ---- subtle parallax-ish year mark in hero (purely cosmetic) -----------
   // (kept tiny; no perf cost)

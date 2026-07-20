@@ -16,7 +16,6 @@ window.LH_CONTENT = {
     name: "Longhorn Software",
     legal: "Longhorn Software LLC",
     location: "Dallas, Texas",
-    email: "",
   },
 
   
@@ -38,40 +37,11 @@ founder: {
 
   hero: {
     eyebrow: "Software engineering · Dallas, TX",
-    // Headline options. Default = index 0. Switch via Tweaks.
     // accentLine = which line is rendered in italic brass.
-    headlineOptions: [
-      {
-        id: "american-ai",
-        label: "American + AI (default)",
-        lines: ["American software, AI-accelerated.", "Skip the offshoring tax."],
-        accentLine: 1,
-      },
-      {
-        id: "practice",
-        label: "Practice (restrained)",
-        lines: ["A software engineering", "practice in Dallas, Texas."],
-        accentLine: 1,
-      },
-      {
-        id: "verbs",
-        label: "Verbs",
-        lines: ["Build.", "Modernize.", "Automate."],
-        accentLine: 2,
-      },
-      {
-        id: "modern",
-        label: "Modern / America",
-        lines: ["Modern software,", "engineered in America."],
-        accentLine: 1,
-      },
-      {
-        id: "works",
-        label: "Outcome",
-        lines: ["Software that works.", "Without the bloat."],
-        accentLine: 1,
-      },
-    ],
+    headline: {
+      lines: ["American software, AI-accelerated.", "Skip the offshoring tax."],
+      accentLine: 1,
+    },
     tagline:
       "Modern software engineering, powered by AI, based in Dallas, Texas. We build and modernize systems, automate workflows, and deliver practical software without the bloat of legacy delivery.",
     ctaPrimary: { label: "Start a conversation", href: "#contact" },
@@ -122,12 +92,7 @@ services: {
 
   hiddenCosts: {
     eyebrow: "Why domestic",
-    // Default = index 0. Switch via Tweaks.
-    headlineOptions: [
-      "Hidden costs that don't show up on the invoice.",
-      "The line items offshoring leaves off.",
-      "What 'cheap' actually costs.",
-    ],
+    headline: "Hidden costs that don't show up on the invoice.",
     lede:
       "Offshore engineering looks cheap when you're comparing hourly rates on a spreadsheet. The real cost shows up later, paid out in rework, attrition, security exposure, and all the coordination required to keep a distant team productive. These are worth thinking about before you sign a statement of work.",
     points: [
@@ -195,18 +160,6 @@ services: {
     submit: "Send",
     success:
       "Thanks. Your note is in. We'll be in touch within one business day.",
-  },
-
-  // ----------------------------------------------------------------
-  // Tweakable design tokens — exposed in the Tweaks panel.
-  // ----------------------------------------------------------------
-  tweaks: {
-    accentOptions: [
-      { id: "brass",     label: "Brass",      value: "oklch(0.78 0.09 80)"  },
-      { id: "champagne", label: "Champagne",  value: "oklch(0.86 0.045 95)" },
-      { id: "sage",      label: "Sage",       value: "oklch(0.74 0.04 145)" },
-      { id: "slate",     label: "Slate blue", value: "oklch(0.74 0.04 230)" },
-    ],
   },
 
   footer: {

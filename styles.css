@@ -912,20 +912,6 @@ footer {
   font-size: clamp(18px, 1.5vw, 22px);
   max-width: 56ch;
 }
-.fdr-portrait { position: relative; }
-.fdr-portrait image-slot {
-  border: 1px solid var(--rule);
-  background: var(--bg-raise);
-}
-.fdr-portrait-cap {
-  margin-top: 14px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink-4);
-  text-align: right;
-}
 
 .fdr-block { max-width: var(--max-prose); margin-left: auto; margin-right: auto; text-align: center; }
 .fdr-block.fdr-prose { max-width: 64ch; }
