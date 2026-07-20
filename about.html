@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Founder — Longhorn Software</title>
+  <meta name="description" content="Longhorn Software is a solo, senior engineering practice in Dallas, founded by Cameron after years building production systems at scale on AWS." />
+  <meta name="theme-color" content="#0B0E12" />
+  <meta name="color-scheme" content="dark" />
+  <style>:root { color-scheme: dark; } html, body { background: #0B0E12; }</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="prefetch" href="index.html" />
+</head>
+<body>
+
+  <!-- ============== NAV / HEADER ============== -->
+  <header class="nav" role="banner">
+    <a class="brand" href="index.html" aria-label="Longhorn Software home">
+      <img class="brand-logo" src="assets/logo-wordmark-t.png" alt="Longhorn Software" />
+    </a>
+    <button class="hamburger" data-hamburger aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
+      <span>Menu</span>
+      <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+  </header>
+
+  <!-- ============== FULLSCREEN MENU ============== -->
+  <nav class="menu" id="primary-menu" data-menu data-open="false" aria-label="Primary">
+    <div class="menu-inner" data-menu-inner></div>
+  </nav>
+
+  <main id="top">
+
+    <!-- ============== FOUNDER HERO ============== -->
+    <section class="fdr-hero" data-screen-label="Founder Hero">
+      <div class="wrap">
+        <div class="fdr-hero-grid">
+          <div class="fdr-hero-text">
+            <div class="kicker" data-founder-eyebrow>Founder</div>
+            <h1 class="fdr-name"><span data-founder-name>Cameron</span></h1>
+            <div class="fdr-role" data-founder-role>Founder &amp; Lead Engineer</div>
+            <p class="lede fdr-intro">
+              I'm Cameron, a software engineer based in Dallas. For the last several years I worked at Amazon on the team behind AWS Organizations, building production systems at the scale AWS runs on. I started Longhorn Software to bring that same level of engineering directly to the companies that need it, without the layers that usually sit between a business and the people writing its code.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== BACKGROUND ============== -->
+    <section data-screen-label="Background">
+      <div class="wrap">
+        <div class="fdr-block">
+          <div class="kicker">Background</div>
+          <h2>Years of production engineering at scale.</h2>
+          <p class="body fdr-body">
+            At Amazon, I worked on AWS Organizations, the service businesses use to centrally manage their AWS accounts. On Responsibility Transfer, a launch that changes which organization owns and pays for an AWS account, I served as technical lead for several phased releases. For those releases, I coordinated as many as fifteen engineers across teams and carried the work from API design through security and production-readiness reviews. I also led the launch of new AWS Organizations resources in CloudFormation and the expansion of Organizations sub-services into additional AWS Regions.
+          </p>
+          <p class="body fdr-body">
+            Outside of client work, I also build personal projects where performance matters. Most recently, I developed a GPU-accelerated trading framework with custom CUDA kernels that completed 90,000 full-year market simulations at roughly one per millisecond. I used AI tooling to accelerate development while retaining direct control over architecture, correctness, and performance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== WHY LONGHORN ============== -->
+    <section data-screen-label="Why Longhorn">
+      <div class="wrap">
+        <div class="fdr-block fdr-prose">
+          <div class="kicker">Why I started Longhorn</div>
+          <h2>The economics of good engineering changed.</h2>
+          <p class="body fdr-body">
+            For most of my career, serious software meant a serious team: layers of project managers, hand-offs, and coordination just to keep everyone moving in the same direction. AI-assisted development changes that. One experienced engineer can now take on work that used to require a whole group.
+          </p>
+          <p class="body fdr-body">
+            The size of an engineering team tends to be inversely correlated with the quality of the software it produces. Small, senior, and accountable wins more often than large and layered. Longhorn is a solo practice today, and I treat that as a feature. The engineer who scopes your work is the engineer who builds it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== DALLAS / PERSONAL ============== -->
+    <section data-screen-label="Dallas">
+      <div class="wrap">
+        <div class="fdr-block fdr-prose">
+          <div class="kicker">The name</div>
+          <h2>Sturdy and adaptable.</h2>
+          <p class="body fdr-body">
+            Texas is Longhorn country. Designated the official state large mammal in 1995, the Longhorn has long embodied the qualities Texans value: toughness, reliability, and endurance. Those are the qualities I build for in every piece of software.
+          </p>
+          <div class="fdr-cta">
+            <a class="btn btn-primary" href="index.html#contact">
+              <span class="l">Start a conversation</span><span class="arrow"></span>
+            </a>
+            <a class="btn btn-ghost" href="index.html#why-domestic">
+              <span class="l">Why domestic</span><span class="arrow"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <img class="brand-logo brand-logo-foot" src="assets/logo-wordmark-t.png" alt="Longhorn Software" />
+          <p class="blurb">Modern software engineering, powered by AI. Domestic operations from Dallas, Texas.</p>
+        </div>
+
+        <div class="foot-col">
+          <h4>Explore</h4>
+          <a href="index.html#services">What we build</a>
+          <a href="index.html#why-domestic">Why domestic</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+      <div class="foot-fine">
+        <span>© <span data-year></span> · <span data-brand-legal>Longhorn Software LLC</span></span>
+        <span>Dallas, Texas · USA</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="about.js"></script>
+</body>
+</html>

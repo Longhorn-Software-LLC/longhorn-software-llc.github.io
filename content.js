@@ -24,9 +24,17 @@ nav: [
   { label: "Who we are", href: "#about" },
   { label: "What we build", href: "#services" },
   { label: "Why domestic", href: "#why-domestic" },
-  { label: "Training", href: "#training" },
+  { label: "Half-day review", href: "#training" },
   { label: "Contact", href: "#contact" },
+  { label: "About the Founder", href: "about.html" },
 ],
+
+// Founder page header (about.html). Prose lives in about.html itself.
+founder: {
+  name: "Cameron Howard",
+  role: "Founder & Lead Engineer",
+  eyebrow: "Founder",
+},
 
   hero: {
     eyebrow: "Software engineering · Dallas, TX",
@@ -36,8 +44,8 @@ nav: [
       {
         id: "american-ai",
         label: "American + AI (default)",
-        lines: ["American Software,", "AI-accelerated.", "Skip the offshoring tax."],
-        accentLine: 2,
+        lines: ["American software, AI-accelerated.", "Skip the offshoring tax."],
+        accentLine: 1,
       },
       {
         id: "practice",
@@ -67,7 +75,7 @@ nav: [
     tagline:
       "Modern software engineering, powered by AI, based in Dallas, Texas. We build and modernize systems, automate workflows, and deliver practical software without the bloat of legacy delivery.",
     ctaPrimary: { label: "Start a conversation", href: "#contact" },
-    ctaSecondary: { label: "What we do", href: "#services" },
+    ctaSecondary: { label: "What we build", href: "#services" },
   },
 
 about: {
@@ -103,6 +111,12 @@ services: {
       title: "Workflow automation & integration",
       body: "Manual hand-offs, spreadsheet glue, and disconnected SaaS replaced with reliable, observable automation between the systems you already run.",
     },
+    {
+      n: "05",
+      title: "AI systems in production",
+      feature: true,
+      body: "AI capability built into real systems, new or existing, with the same engineering standards as everything else we ship: failures visible and recoverable, humans approving where it counts, and your team able to run it without us.",
+    },
   ],
 },
 
@@ -123,45 +137,39 @@ services: {
           "Time-zone gaps stretch out clarification cycles across the lifetime of a project. A single ambiguous requirement can cost a full day before anyone notices it was misread, and across a multi-month build those quiet days quietly add up to weeks.",
       },
       {
-        title: "Quality variance",
+        title: "The rework tax",
         body:
           "Engineers working without close peer review tend to produce code that needs rework later. The savings on hourly rate disappear the first time a critical path has to be rebuilt, and they keep disappearing every time the next person tries to extend it.",
       },
       {
-        title: "Security exposure",
+        title: "The security tax",
         body:
           "When sensitive business data and source code cross international borders, you take on risk you can't fully audit. The pattern is well documented. Video streaming platforms, financial services firms, and healthcare vendors have all disclosed breaches and even data ransoms that traced back to outsourced development environments. The breach is what makes the news, but the decision to send the code abroad in the first place is usually what made it possible.",
       },
       {
-        title: "Turnover and continuity",
+        title: "The turnover tax",
         body:
-          "Annual attrition at large offshore firms in India runs around 13-15% in stable years and has spiked to 25%+ during high-demand cycles. The engineer who built your system is rarely the one maintaining it a year later — and institutional knowledge will walk out the door",
+          "Large offshore development firms routinely report annual attrition of 12–15%, and the industry peaked above 20% during the last hiring surge. The engineer who built your system is rarely the one maintaining it a year later, and the institutional knowledge walks out the door.",
       },
       {
-        title: "Hidden coordination costs",
+        title: "The coordination tax",
         body:
           "With larger offshore engagements, you\'re not just paying for engineering hours. Project managers, account managers, QA layers, and translation overhead get built into the rate or billed separately. The line item that wins the pitch is rarely the line item that defines the invoice.",
       },
     ],
-    closer: {
-      label: "Our position",
-      body:
-        "We close the cost gap with US-based engineering and AI-assisted development. You get clear accountability throughout the project, an operation that stays inside the United States, and software that holds up.",
-    },
   },
 
   training: {
-    eyebrow: "Training",
-    headline: "Work with us before you commit to a build.",
+    eyebrow: "Half-day review",
+    headline: "Start with a working session.",
     body:
-      "AI training is the easiest way to start working with us. Sessions are personalized, 1:1 or small-group, and structured around how your team actually learns, whether that's by watching, by doing, or by building alongside us. The goal is for your team to leave with skills they can put to work the same week. It's also a low-stakes way to see whether a larger engagement makes sense down the road.",
+      "Whether you have a project already scoped or a problem you're still circling, spend half a day with us before committing to a build. We sit down with your team, on your stack and inside your actual workflows, and work the problem: what's worth building, where we'd start, and what it would actually take. You leave with straight answers and a clear sense of what we're like to work with.",
     bullets: [
-      "Scoped to your team's actual stack and workflows",
-      "Practical, hands-on exercises throughout",
-      "Knowledge transfer first, so your team owns what gets built",
-      "A natural on-ramp to a larger engagement",
+      "Hands-on with your real systems, not a simple demo",
+      "Built for decision-makers and their teams, technical or not",
+      "Everything we work through stays with you",
     ],
-    cta: { label: "Talk about a session", href: "#contact" },
+    cta: { label: "Book a session", href: "#contact" },
   },
 
   intake: {
@@ -172,25 +180,17 @@ services: {
     fields: {
       name: "Name",
       email: "Email",
-      company: "Company",
       projectType: "Project type",
-      budget: "Estimated budget",
-      description: "What are you trying to accomplish?",
+      description: "Tell us about your project",
     },
     projectTypes: [
+      "Half-day working session",
       "New software build",
+      "AI systems",
       "Legacy modernization",
       "Performance optimization",
       "Workflow automation",
-      "AI training",
-      "Not sure yet",
-    ],
-    budgets: [
-      "Under $25k",
-      "$25k – $75k",
-      "$75k – $200k",
-      "$200k+",
-      "Not sure yet",
+      "Something else",
     ],
     submit: "Send",
     success:
@@ -212,9 +212,6 @@ services: {
   footer: {
     blurb:
       "Modern software engineering, powered by AI. Domestic operations from Dallas, Texas.",
-    links: [
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms", href: "#" },
-    ],
+    links: [],
   },
 };

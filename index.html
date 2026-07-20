@@ -6,27 +6,25 @@
   <title>Longhorn Software</title>
   <meta name="description" content="" />
   <meta name="theme-color" content="#0B0E12" />
+  <meta name="color-scheme" content="dark" />
+  <style>:root { color-scheme: dark; } html, body { background: #0B0E12; }</style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="prefetch" href="about.html" />
+  <link rel="prefetch" href="styles.css" />
+  <link rel="prefetch" href="app.js" />
+  <link rel="prefetch" href="content.js" />
 </head>
 <body>
 
   <!-- ============== NAV / HEADER ============== -->
   <header class="nav" role="banner">
     <a class="brand" href="#top" aria-label="Longhorn Software home">
-      <!-- Abstract horn-pair mark. Original; not a UT-style silhouette. -->
-      <svg class="mark" viewBox="0 0 64 24" aria-hidden="true">
-        <g fill="none" stroke="oklch(0.78 0.09 80)" stroke-width="1.6" stroke-linecap="round">
-          <path d="M32 18 C 24 18, 16 14, 4 5" />
-          <path d="M32 18 C 40 18, 48 14, 60 5" />
-        </g>
-        <circle cx="32" cy="18" r="1.4" fill="oklch(0.78 0.09 80)" />
-      </svg>
-      <span class="wordmark" data-brand-name>Longhorn Software</span>
+      <img class="brand-logo" src="assets/logo-wordmark-t.png" alt="Longhorn Software" />
     </a>
-
     <button class="hamburger" data-hamburger aria-expanded="false" aria-controls="primary-menu" aria-label="Open menu">
       <span>Menu</span>
       <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -38,7 +36,7 @@
     <div class="menu-inner" data-menu-inner></div>
   </nav>
 
-  <!-- ============== ABOUT MODAL ============== -->
+  <!-- ============== ABOUT MODAL (placeholder) ============== -->
   <div class="modal" data-modal data-open="false" role="dialog" aria-modal="true" aria-labelledby="about-h">
     <div class="modal-card">
       <div class="kicker">About</div>
@@ -53,7 +51,7 @@
     <!-- ============== HERO ============== -->
     <section class="hero" id="home" data-screen-label="01 Hero">
       <div class="wrap">
-        <div class="kicker" data-hero-eyebrow></div>
+        <img class="hero-logo" src="assets/logo-full-t.png" alt="Longhorn Software" />
         <h1 data-hero-headline></h1>
         <p class="hero-tagline" data-hero-tagline></p>
         <div class="hero-ctas">
@@ -61,7 +59,7 @@
             <span class="l">Start a conversation</span><span class="arrow"></span>
           </a>
           <a class="btn btn-ghost" data-hero-cta-secondary href="#services">
-            <span class="l">What we do</span><span class="arrow"></span>
+            <span class="l">What we build</span><span class="arrow"></span>
           </a>
         </div>
       </div>
@@ -104,10 +102,6 @@
           <p class="lede" data-costs-lede></p>
         </div>
         <div class="costs-list" data-costs-list></div>
-        <div class="costs-closer">
-          <div class="label" data-costs-closer-label></div>
-          <p data-costs-closer-body></p>
-        </div>
       </div>
     </section>
 
@@ -144,20 +138,13 @@
           </aside>
 
           <div>
-            <form
-              id="contact-form"
-              class="form"
-              data-form
-              action="https://formspree.io/f/mjgqbnpp"
-              method="POST"
-              novalidate
-            >
+            <form class="form" data-form novalidate>
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" />
               <div class="row">
                 <div class="field">
                   <label for="name" data-label-name>Name <span class="req">REQUIRED</span></label>
                   <input id="name" name="name" type="text" autocomplete="name" required />
                 </div>
-
                 <div class="field">
                   <label for="email" data-label-email>Email <span class="req">REQUIRED</span></label>
                   <input id="email" name="email" type="email" autocomplete="email" required />
@@ -165,64 +152,24 @@
               </div>
 
               <div class="field">
-                <label for="company" data-label-company>Company</label>
-                <input id="company" name="company" type="text" autocomplete="organization" />
-              </div>
-
-              <div class="row">
-                <div class="field">
-                  <label for="projectType" data-label-projectType>Project type</label>
-                  <select id="projectType" name="projectType"></select>
-                </div>
-
-                <div class="field">
-                  <label for="budget" data-label-budget>Estimated budget</label>
-                  <select id="budget" name="budget"></select>
-                </div>
+                <label for="projectType" data-label-projectType>Project type <span class="opt">Optional</span></label>
+                <select id="projectType" name="projectType"></select>
               </div>
 
               <div class="field">
-                <label for="description" data-label-description>Description <span class="req">REQUIRED</span></label>
-                <textarea
-                  id="description"
-                  name="description"
-                  rows="5"
-                  required
-                  placeholder="A few sentences on what you're trying to accomplish, the current state, and any constraints."
-                ></textarea>
+                <label for="description" data-label-description>Tell us about your project <span class="opt">Optional</span></label>
+                <textarea id="description" name="description" rows="5" placeholder="Anything about the project you'd like us to know up front."></textarea>
               </div>
-
-              <!-- Custom subject line shown in Formspree emails -->
-              <input type="hidden" name="_subject" value="New Longhorn Software inquiry" />
-
-              <!-- Honeypot anti-spam field -->
-              <input
-                type="text"
-                name="_gotcha"
-                tabindex="-1"
-                autocomplete="off"
-                style="display:none"
-              />
-
-              <!-- Error message shown only when submission fails -->
-              <div class="form-error" data-form-error role="alert" aria-live="polite"></div>
 
               <div class="form-submit">
                 <button class="btn btn-primary" type="submit">
                   <span data-intake-submit>Send</span><span class="arrow"></span>
                 </button>
-                <span class="form-note">We read every inquiry personally.</span>
+                <span class="form-note">Reading your messages is the one thing we won't use AI for.</span>
               </div>
             </form>
 
-            <!-- Success message stays hidden until app.js shows it after submit -->
-            <div
-              class="form-success"
-              data-intake-success
-              role="status"
-              aria-live="polite"
-              hidden
-            ></div>
+            <div class="form-success" data-intake-success role="status" aria-live="polite"></div>
           </div>
         </div>
       </div>
@@ -234,16 +181,7 @@
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a class="brand" href="#top" aria-label="Longhorn Software home">
-            <svg class="mark" viewBox="0 0 64 24" aria-hidden="true">
-              <g fill="none" stroke="oklch(0.78 0.09 80)" stroke-width="1.6" stroke-linecap="round">
-                <path d="M32 18 C 24 18, 16 14, 4 5" />
-                <path d="M32 18 C 40 18, 48 14, 60 5" />
-              </g>
-              <circle cx="32" cy="18" r="1.4" fill="oklch(0.78 0.09 80)" />
-            </svg>
-            <span class="wordmark" data-brand-name>Longhorn Software</span>
-          </a>
+          <img class="brand-logo brand-logo-foot" src="assets/logo-wordmark-t.png" alt="Longhorn Software" />
           <p class="blurb" data-footer-blurb></p>
         </div>
 
@@ -251,11 +189,6 @@
           <h4>Contact</h4>
           <a data-brand-email>—</a>
           <span data-brand-location>—</span>
-        </div>
-
-        <div class="foot-col">
-          <h4>Site</h4>
-          <div data-footer-links></div>
         </div>
       </div>
       <div class="foot-fine">
@@ -265,21 +198,7 @@
     </div>
   </footer>
 
-  <!-- Tweaks panel root populated by tweaks.js -->
-  <aside class="tweaks-panel" data-tweaks-panel data-open="false" aria-label="Tweaks"></aside>
-
   <script src="content.js"></script>
-  <script>
-    // Tweak defaults. The block between EDITMODE markers must stay valid JSON
-    // — the host parses it and rewrites it on disk when you change tweaks.
-    window.__LH_TWEAK_DEFAULTS__ = /*EDITMODE-BEGIN*/{
-      "headlineId": 0,
-      "costsHeadlineId": 0,
-      "accent": "brass",
-      "showSecondary": true
-    }/*EDITMODE-END*/;
-  </script>
-  <script src="tweaks.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
