@@ -476,10 +476,6 @@ p { margin: 0; }
     padding: 36px 32px;
   }
   .svc-item--feature .svc-inner {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: start;
-    gap: 12px;
     max-width: 70ch;
   }
 }
@@ -501,7 +497,8 @@ p { margin: 0; }
 }
 .svc-item h3 { margin-bottom: 6px; }
 .svc-item p { color: var(--ink-2); font-size: 15.5px; line-height: 1.55; }
-.svc-item--feature { border-color: var(--brass); }
+.svc-item--feature { border-color: var(--brass); display: block; }
+.svc-item--feature .svc-inner { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; }
 .svc-item--feature .n { color: var(--brass); padding-top: 4px; }
 
 /* secondary (de-emphasized) */

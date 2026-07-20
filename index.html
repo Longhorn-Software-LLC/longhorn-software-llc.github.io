@@ -143,11 +143,11 @@
               <div class="row">
                 <div class="field">
                   <label for="name" data-label-name>Name <span class="req">REQUIRED</span></label>
-                  <input id="name" name="name" type="text" autocomplete="name" required />
+                  <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required />
                 </div>
                 <div class="field">
                   <label for="email" data-label-email>Email <span class="req">REQUIRED</span></label>
-                  <input id="email" name="email" type="email" autocomplete="email" required />
+                  <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required />
                 </div>
               </div>
 
@@ -158,7 +158,7 @@
 
               <div class="field">
                 <label for="description" data-label-description>Tell us about your project <span class="opt">Optional</span></label>
-                <textarea id="description" name="description" rows="5" placeholder="Anything about the project you'd like us to know up front."></textarea>
+                <textarea id="description" name="description" rows="5" maxlength="2000" placeholder="Anything about the project you'd like us to know up front."></textarea>
               </div>
 
               <div class="form-submit">

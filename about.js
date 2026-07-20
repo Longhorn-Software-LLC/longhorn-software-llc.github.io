@@ -49,7 +49,7 @@
       menuInner.appendChild(el(`
         <a href="${escape(href)}" data-menu-link${current ? ' aria-current="page"' : ""}>
           <span><span class="num">${num}</span> &nbsp;${escape(item.label)}</span>
-          ${current ? `<span class="note">You're here</span>` : (item.note ? `<span class="note">${escape(item.note)}</span>` : "")}
+          ${item.note ? `<span class="note">${escape(item.note)}</span>` : ""}
         </a>
       `));
     });
